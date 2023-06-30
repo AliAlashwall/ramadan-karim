@@ -6,7 +6,7 @@ class CsvParser {
         return PrayerTime(
             Date = token[0],
             Fajr = token[1],
-            Dhuhr = token[3],
+            Duher = token[3],
             Asr = token[4],
             Maghrib =  token[5],
             Isha = token[6]
