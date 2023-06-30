@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,31 +8,34 @@
     android:background="@color/white"
     app:layoutDescription="@xml/activity_main_scene">
 
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/mosque"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_margin="20dp"
-        app:lottie_colorFilter="@color/_373a3939"
+        app:layout_constraintBottom_toTopOf="@id/remembranceId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
+        app:lottie_colorFilter="@color/_373a3939"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/mosque" />
 
     <TextView
-        android:id="@+id/morningText"
-        android:layout_width="wrap_content"
+        android:id="@+id/remembranceId"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/date_background"
-        android:paddingEnd="20dp"
-        android:paddingStart="20dp"
-        android:layout_margin="10dp"
-        android:text="@string/morning_text_v"
+        android:padding="15dp"
+        android:text="@string/remebrance_bar"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        app:drawableEndCompat="@drawable/baseline_arrow_drop_down_24"
         app:layout_constraintBottom_toTopOf="@+id/date"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mosque" />
 
@@ -44,14 +46,14 @@
         android:background="@drawable/date_background"
         android:gravity="center"
         android:padding="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/Fajr"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/morningText" />
+        app:layout_constraintEnd_toStartOf="@id/n"
+        app:layout_constraintStart_toEndOf="@id/p"
+        app:layout_constraintTop_toBottomOf="@+id/remembranceId" />
 
     <Button
         android:id="@+id/p"
@@ -71,7 +73,7 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#B8C5C6"
-        android:drawableRight="@drawable/baseline_arrow_right_24"
+        android:drawableEnd="@drawable/baseline_arrow_right_24"
         android:padding="0dp"
         android:text="@string/nulll"
         app:layout_constraintBottom_toBottomOf="@+id/date"
@@ -85,21 +87,22 @@
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/pray_time_background"
         android:gravity="center"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/Dhuhr"
+        app:layout_constraintBottom_toTopOf="@id/Duher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date" />
 
     <TextView
-        android:id="@+id/Dhuhr"
+        android:id="@+id/Duher"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/pray_time_background"
         android:gravity="center"
         android:textColor="@color/white"
@@ -114,13 +117,14 @@
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/pray_time_background"
         android:gravity="center"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/Maghrib"
         app:layout_constraintEnd_toEndOf="@+id/Fajr"
         app:layout_constraintStart_toStartOf="@+id/Fajr"
-        app:layout_constraintTop_toBottomOf="@+id/Dhuhr" />
+        app:layout_constraintTop_toBottomOf="@+id/Duher" />
 
     <TextView
         android:id="@+id/Maghrib"
@@ -128,6 +132,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/pray_time_background"
         android:gravity="center"
         android:textColor="@color/white"
@@ -140,16 +145,16 @@
         android:id="@+id/Isha"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginBottom="15dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/pray_time_background"
         android:gravity="center"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/Fajr"
         app:layout_constraintStart_toStartOf="@+id/Fajr"
         app:layout_constraintTop_toBottomOf="@+id/Maghrib"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/oneFragment"
@@ -161,14 +166,12 @@
         android:id="@+id/startButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="140dp"
         android:backgroundTint="#96A9AC"
         android:text="@string/get_start"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/Maghrib"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Dhuhr" />
-
+        app:layout_constraintTop_toTopOf="@+id/Maghrib" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
