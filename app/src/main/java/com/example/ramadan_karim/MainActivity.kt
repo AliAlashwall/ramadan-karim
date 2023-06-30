@@ -2,6 +2,8 @@ package com.example.ramadan_karim
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.View.GONE
 import android.view.View.INVISIBLE
 import android.widget.Button
 import androidx.fragment.app.Fragment
@@ -11,13 +13,14 @@ import java.io.InputStreamReader
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding : ActivityMainBinding
-    private val baseFragment = OneFragment()
+    lateinit var binding: ActivityMainBinding
+     val baseFragment = OneFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         parseFile()
         initFragment()
         callBack()
@@ -25,20 +28,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun initFragment() {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.oneFragment,baseFragment)
+        transaction.add(R.id.oneFragment, baseFragment)
         transaction.commit()
     }
 
-    private fun callBack(){
-        findViewById<Button>(R.id.startButton)?.setOnClickListener{
-            removeFragment(baseFragment)
-            findViewById<Button>(R.id.startButton)?.visibility = INVISIBLE
-        }
+    private fun callBack() {
         binding.apply {
-            n.setOnClickListener{
+            startButton.setOnClickListener {
+                removeFragment(baseFragment)
+                binding.startButton.elevation = -10F
+            }
+            n.setOnClickListener {
                 bindDay(DataManager.getNextDay())
             }
-            p.setOnClickListener{
+            p.setOnClickListener {
                 bindDay(DataManager.getPreviousDay())
             }
         }
@@ -53,22 +56,21 @@ class MainActivity : AppCompatActivity() {
         }
         bindDay(DataManager.getCurrentDay())
     }
-
-
-    private fun bindDay(day : PrayerTime){
+    private fun bindDay(day: PrayerTime) {
         binding.apply {
-            date.text   = day.Date
-            Fajr.text   = "Fajr ${" ".repeat(50)} ${day.Fajr}"
-            Dhuhr.text  = "Dhuhr${" ".repeat(50)} ${day.Dhuhr}"
-            Asr.text    = "Asr  ${" ".repeat(50)} ${day.Asr}"
-            Maghrib.text= "Maghrib${" ".repeat(48)} ${day.Maghrib}"
-            Isha.text   = "Isha ${" ".repeat(50)} ${day.Isha}"
+            date.text = day.Date
+            Fajr.text = "Fajr ${" ".repeat(50)} ${day.Fajr}"
+            Dhuhr.text = "Dhuhr${" ".repeat(50)} ${day.Dhuhr}"
+            Asr.text = "Asr  ${" ".repeat(50)} ${day.Asr}"
+            Maghrib.text = "Maghrib${" ".repeat(48)} ${day.Maghrib}"
+            Isha.text = "Isha ${" ".repeat(50)} ${day.Isha}"
         }
     }
-    private fun removeFragment(fragment : Fragment){
+
+    private fun removeFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.remove(fragment)
         transaction.commit()
     }
-
 }
+
