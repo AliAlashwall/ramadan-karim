@@ -3,19 +3,16 @@ package com.example.ramadan_karim
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import com.example.ramadan_karim.databinding.ActivityMainBinding
 import java.io.BufferedReader
 import java.io.InputStreamReader
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
      private val baseFragment = OneFragment()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         parseFile()
         initFragment()
         callBack()
@@ -26,11 +23,8 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
     }
     private fun callBack() {
+
         binding.apply {
-            startButton.setOnClickListener {
-                removeFragment(baseFragment)
-                binding.startButton.elevation = -10F
-            }
             n.setOnClickListener {
                 bindDay(DataManager.getNextDay())
             }
@@ -60,10 +54,6 @@ class MainActivity : AppCompatActivity() {
             Isha.text = "Isha ${" ".repeat(50)} ${day.Isha}"
         }
     }
-    private fun removeFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.remove(fragment)
-        transaction.commit()
-    }
+
 }
 
