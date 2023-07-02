@@ -26,9 +26,7 @@
         android:layout_marginStart="-10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
         app:lottie_colorFilter="@color/green"
-
         app:lottie_rawRes="@raw/background_corner" />
 
     <com.airbnb.lottie.LottieAnimationView
@@ -39,9 +37,7 @@
         android:layout_marginEnd="-10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:lottie_colorFilter="@color/green"
-
         app:lottie_rawRes="@raw/background_corner" />
 
 
@@ -67,5 +63,16 @@
         app:lottie_colorFilter="@color/green"
         app:lottie_rawRes="@raw/background_corner" />
 
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#96A9AC"
+        android:text="@string/get_start"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lottieAnimationView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
