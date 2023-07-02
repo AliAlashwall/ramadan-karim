@@ -1,7 +1,5 @@
 package com.example.ramadan_karim
 
-import android.widget.Toast
-
 object DataManager {
     private val dayList = mutableListOf<PrayerTime>()
     var dayIndex = 0
